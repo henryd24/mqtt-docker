@@ -1,6 +1,6 @@
 version: '3.3'
 services: 
-    mosquito:
+    mosquitto:
         container_name: mqtt
         image: eclipse-mosquitto
         restart: always

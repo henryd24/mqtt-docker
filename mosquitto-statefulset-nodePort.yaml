@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mosquitto
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mosquitto
+  serviceName: "mosquitto"
+  template:
+    metadata:
+      labels:
+        app: mosquitto
+    spec:
+      containers:
+      - name: mosquitto
+        image: henda24/mqtt-mosquitto:v1
+        ports:
+        - containerPort: 1883
+        volumeMounts:
+        - name: data # mount data in /data
+          mountPath: /data
+      volumes:
+      - name: data
+        emptyDir: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mosquitto
+  labels:
+    app: mosquitto
+spec:
+  type: NodePort
+  ports:
+  - port: 1883
+    nodePort: 30000
+  selector:
+    app: mosquitto

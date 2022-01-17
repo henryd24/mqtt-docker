@@ -18,6 +18,7 @@ spec:
         image: henda24/mqtt-mosquitto:v1
         ports:
         - containerPort: 1883
+        - containerPort: 9001
         volumeMounts:
         - name: data # mount data in /data
           mountPath: /data

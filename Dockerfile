@@ -1,4 +1,5 @@
 FROM eclipse-mosquitto
+LABEL maintainer="shenrydanielmm@gmail.com"
 LABEL Remarks="Mosquito server for Eclipse"
 COPY . /mosquitto
 VOLUME ./data /mosquitto/data

@@ -1,9 +1,6 @@
 trigger:
 - main
 
-resources:
-- repo: self
-
 steps:
 - task: Docker@2
   inputs:

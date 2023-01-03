@@ -2,7 +2,7 @@ version: '3.3'
 services: 
     mosquitto:
         container_name: mqtt
-        image: eclipse-mosquitto
+        build: .
         restart: always
         volumes:
           - ./config:/mosquitto/config
